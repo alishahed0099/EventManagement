@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Now Popup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .book-btn {
+      background: linear-gradient(90deg, #7b2ff7, #f107a3);
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      padding: 14px 30px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #f107a3;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-content {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding: 40px 60px;
+      color: white;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .popup-content h2 {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 25px 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .step-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <button class="book-btn" onclick="openPopup()">Book Your Adventure Now!</button>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>Seamless Online Event Booking</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">📅</div>
+          <span>Browse Events</span>
+        </div>
+        <div class="step">
+          <div class="step-icon">💳</div>
+          <span>Secure Payment</span>
+        </div>
+        <div class="step">
+          <div class="step-icon">🎟️</div>
+          <span>Receive Ticket</span>
+        </div>
+      </div>
+      <button class="close-btn" onclick="closePopup()">Continue</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      // Later you can redirect to next page like:
+      // window.location.href = "booking.html";
+    }
+  </script>
+</body>
+</html>

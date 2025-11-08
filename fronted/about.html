@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Ayojon</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e6bfe4;
+      color: #1880d6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* Header */
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #861805;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Subtitle */
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 50px;
+      color: #0d0118;
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      background-color: #F8E6A0;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(164,117,81,0.2);
+    }
+
+    .about-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(164,117,81,0.2);
+    }
+
+    /* Team Section */
+    .team {
+      margin-top: 80px;
+    }
+
+    .team h2 {
+      text-align: center;
+      color: #120801;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .member {
+      text-align: center;
+      flex: 1 1 200px;
+      background-color: #5196d1;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(164,117,81,0.2);
+      transition: transform 0.3s;
+    }
+
+    .member:hover {
+      transform: translateY(-5px);
+    }
+
+    .member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(164,117,81,0.2);
+    }
+
+    .member h3 {
+      margin: 5px 0;
+      color: #0a0a0a;
+    }
+
+    .member p {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>About Us</h1>
+    <p class="subtitle">Discover Ayojon and how we simplify event management</p>
+
+    <div class="about-section">
+      <div class="about-text">
+        <p>
+          Ayojon is a modern web-based platform that helps organizers create and manage events easily, 
+          and allows users to discover and book events conveniently. 
+        </p>
+        <p>
+          Our mission is to make event management smooth and enjoyable for everyone. 
+          Users receive instant confirmations, reminders, and updates, while organizers can track attendees and manage their events efficiently.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img src="images/event.jpg" alt="About Us">
+      </div>
+    </div>
+
+    <div class="team">
+      <h2>Meet the Team</h2>
+      <div class="team-members">
+        <div class="member">
+          <img src="images/priya.jpg" alt="Team Member">
+          <h3>Priya Rani Vokto</h3>
+          <p>Frontend Developer</p>
+        </div>
+        <div class="member">
+          <img src="images/jannat.jpg" alt="Team Member">
+          <h3>Jannat Bhuiyan</h3>
+          <p>UI/UX Designer</p>
+        </div>
+        <div class="member">
+          <img src="images/shahed.jpeg" alt="Team Member">
+          <h3>Md. Shahed Ali</h3>
+          <p>Backend Developer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
