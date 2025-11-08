@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Payment Method | Ayojon</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #a8c0ff 0%, #89de50 100%);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .payment-container {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 600px;
+      padding: 120px;
+      color: #050000;
+      text-align: center;
+    }
+
+    .payment-container h2 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+
+    .payment-container p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      opacity: 0.85;
+    }
+
+    .method-choice {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .method-btn {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 25px 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+      color: #0d0000;
+    }
+
+    .method-btn:hover, .method-btn.active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .method-btn img {
+      width: 79px;
+      height: 79px;
+      display: block;
+      margin: 0 auto 8px;
+    }
+
+    .input-box {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+
+    .input-box label {
+      font-size:1.5rem;
+      opacity: 0.85;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1.5rem;
+      outline: none;
+    }
+
+    .confirm-btn {
+      margin-top: 25px;
+      background: linear-gradient(90deg, #7b61ff, #4fc3f7);
+      border: none;
+      border-radius: 30px;
+      padding: 12px 0;
+      width: 100%;
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .confirm-btn:hover {
+      opacity: 0.9;
+    }
+
+    a.back-link {
+      display: block;
+      margin-top: 15px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h2>Select Payment Method</h2>
+    <p>Choose a service to complete your payment</p>
+
+    <div class="method-choice">
+      <div class="method-btn" id="bkash">
+        <img src="images/bkash.png" alt="Bkash">
+        bKash
+      </div>
+      <div class="method-btn" id="nagad">
+        <img src="images/nagad.png" alt="Nagad">
+        Nagad
+      </div>
+    </div>
+
+    <form id="paymentForm" onsubmit="return confirmPayment()">
+      <div class="input-box">
+        <label for="mobile">Mobile Number</label>
+        <input type="text" id="mobile" name="mobile" placeholder="e.g. 01XXXXXXXXX" required>
+      </div>
+
+      <div class="input-box">
+        <label for="trxid">Transaction ID</label>
+        <input type="text" id="trxid" name="trxid" placeholder="Enter your TrxID" required>
+      </div>
+
+      <button type="submit" class="confirm-btn">Confirm Payment</button>
+    </form>
+
+    <a href="payment.html" class="back-link">← Back to Summary</a>
+  </div>
+
+  <script>
+    const methodBtns = document.querySelectorAll('.method-btn');
+    let selectedMethod = '';
+
+    methodBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        methodBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedMethod = btn.id;
+      });
+    });
+
+    function confirmPayment() {
+      if (!selectedMethod) {
+        alert('Please select a payment method (bKash or Nagad).');
+        return false;
+      }
+      const mobile = document.getElementById('mobile').value.trim();
+      const trxid = document.getElementById('trxid').value.trim();
+
+      if (mobile && trxid) {
+        alert(`✅ Payment Submitted via ${selectedMethod.toUpperCase()}\nMobile: ${mobile}\nTrxID: ${trxid}`);
+        // Optionally redirect to a success page:
+        // window.location.href = "success.html";
+      }
+      return false; // Prevent actual form submission
+    }
+  </script>
+</body>
+</html>

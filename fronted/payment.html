@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .payment-container {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 500px;
+      padding: 100px;
+      color: #000609;
+      text-align: center;
+    }
+
+    .payment-container h2 {
+      font-size:4rem;
+      margin-bottom: 5px;
+    }
+
+    .payment-container p {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      opacity: 0.85;
+    }
+
+    .payment-method {
+      display: flex;
+      align-items: center;
+      background: rgba(14, 0, 7, 0.15);
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .payment-method:hover {
+      background: rgba(176, 59, 59, 0.25);
+    }
+
+    .payment-method img {
+      width: 60px;
+      height: 60px;
+      margin-right: 12px;
+      border-radius: 50%;
+    }
+
+    .payment-method span {
+      font-weight: 500;
+    }
+
+    .order-summary {
+      margin-top: 25px;
+      text-align: left;
+      background: rgba(13, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 1.7rem;
+    }
+
+    .order-summary div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .confirm-btn {
+      margin-top: 25px;
+      background: linear-gradient(90deg, #7b61ff, #4fc3f7);
+      border: none;
+      border-radius: 30px;
+      padding: 12px 0;
+      width: 100%;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .confirm-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h2>Complete Your Booking</h2>
+    <p>Secure Payment</p>
+
+    <div class="payment-method">
+      <img src="images/bkash.png">
+      <span><h3>Bkash</h3></span>
+    </div>
+
+    <div class="payment-method">
+      <img src="images/nagad.png">
+      <span><h3>Nagad</h3></span>
+    </div>
+
+    <div class="order-summary">
+      <div><span>Event Ticket:</span><span>550.00</span></div>
+      <div><span>Service Fee:</span><span>25.00</span></div>
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 8px 0;">
+      <div><strong>Total:</strong><strong>575.00</strong></div>
+    </div>
+
+   <button class="confirm-btn" onclick="window.location.href='payment-method.html'">Confirm & Pay</button>
+
+  </div>
+</body>
+</html>

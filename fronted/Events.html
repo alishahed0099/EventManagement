@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Events - Ayojon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Ayojon Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Events.html">Events</a>
+      <a href="#">QR Code</a>
+      <a href="#">Organizer Dashboard</a>
+      <a href="#">Notifications</a>
+      <a href="#">Analytics</a>
+      <a href="#">About Us</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- Events Page Content -->
+  <main>
+    <section class="events-section">
+      <h2>Upcoming Events</h2>
+      <!-- Only the container for events -->
+      <div class="events-container" id="eventsContainer"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ayojon. All rights reserved.</p>
+  </footer>
+
+  <!-- Dynamic Events Loader Script -->
+  <script>
+    function loadEvents() {
+      fetch('http://localhost:5000/api/events')
+        .then(response => response.json())
+        .then(events => renderEvents(events));
+    }
+
+    function renderEvents(events) {
+      const eventsContainer = document.getElementById('eventsContainer');
+      if (!eventsContainer) return;
+      eventsContainer.innerHTML = '';
+      events.forEach(event => {
+        const card = document.createElement('div');
+        card.classList.add('event-card');
+        card.innerHTML = `
+          <h3>${event.title}</h3>
+          <p><strong>Date:</strong> ${event.date}</p>
+          <p><strong>Time:</strong> ${event.time || ''}</p>
+          <p><strong>Location:</strong> ${event.location}</p>
+          <p class="price">Ticket Price: ${event.price} BDT</p>
+          <button>Book Now</button>
+        `;
+        eventsContainer.appendChild(card);
+      });
+    }
+
+    // Load events from backend on page load
+    window.onload = loadEvents;
+  </script>
+</body>
+</html
